@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(const BRImoApp());
@@ -23,7 +24,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  bool _isSaldoVisible = false;
+  bool __isSaldoVisible = false;
 
   @override
   Widget build(BuildContext context) {
@@ -32,32 +33,29 @@ class _HomeScreenState extends State<HomeScreen> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            // --- HEADER BIRU POLOS (SESUAI FOTO) ---
+            // --- HEADER BIRU POLOS ---
             Stack(
               clipBehavior: Clip.none,
               children: [
                 _buildBlueHeader(),
                 _buildMainIntegratedCard(), // Box Putih berisi Saldo Biru + Transfer
               ],
-            )
-
-            const SizedBox(height: 15),
-            const SizedBox(height: 15),
-
+            ),
+            const SizedBox(height: 25),
             // --- CARI FITUR & ATUR (BERDAMPINGAN BEDA BOX) ---
             _buildSearchAndAtur(),
 
             const SizedBox(height: 15),
 
-            // --- grid fitur 4x2 (top up - donasi) ---
+            // --- GRID FITUR 4x2 (TOP UP - DONASI) ---
             _buildFeatureGrid(),
 
-            const SizedBox(height: 20),
+            const SizedBox(height: 25),
 
-            // --- penawaran: spesial untukmu & diskon mudik (background ramadhan) ---
-            _buildOfferSection(),
+            // --- PENAWARAN: SPESIAL UNTUKMU & LIHAT SEMUA ---
+            _buildOfferHeader(),
 
-            const SizedBox(height: 120), 
+            const SizedBox(height: 120),
           ],
         ),
       ),
@@ -66,51 +64,8 @@ class _HomeScreenState extends State<HomeScreen> {
         onPressed: () {},
         backgroundColor: const Color(0xFF00529C),
         elevation: 4,
-        child: const Icon(Icons.qr_code_scanner, color: Colors.white size: 30),
-
-        ),
-        bottomNavigationBar: _buildBottomNav(),
+        child: const Icon(Icons.qr_code_scanner, color: Colors.white, size: 30),
+      ),
     );
-  }
-  // 1. header atas sesuai foto
-  Widget _buildBlueHeader() {
-    return Container(
-      height: 220,
-      width: double.infinity,
-      color: const Color(0xFF00529C),
-      padding: const EdgeInsets.only(top: 60, left: 20, right: 20),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: const [
-              Text(
-                "selamat malam,",
-                style: TextStyle(color: Colors.white70, fontSize: 14),
-              )
-              Text(
-                "sherly putriyati",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
-              )
-            ],
-          )
-          Row(
-            children: [
-              const Icon(
-                Icons.notifications_none,
-                color: Colors.white,
-                size: 26,
-              )
-            ],
-          )
-        ],
-      ) 
-    )
   }
 }
