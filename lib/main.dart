@@ -139,6 +139,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
+
   // 2. Box Terintegrasi (Saldo Biru di dalam Bingkai Putih)
   Widget _buildMainIntegratedCard() {
     return Container(
@@ -146,10 +147,12 @@ class _HomeScreenState extends State<HomeScreen> {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(25),
-        boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.08), blurRadius: 15)],
+        boxShadow: [
+          BoxShadow(color: Colors.black.withOpacity(0.08), blurRadius: 15),
+        ],
       ),
 
-    child: Column(
+      child: Column(
         children: [
           // Box Saldo Biru Tua
           Container(
@@ -162,16 +165,32 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text("Saldo Rekening Utama", style: TextStyle(color: Colors.white, fontSize: 13)),
+                const Text(
+                  "Saldo Rekening Utama",
+                  style: TextStyle(color: Colors.white, fontSize: 13),
+                ),
                 const SizedBox(height: 8),
                 Row(
                   children: [
-                    Text(_isSaldoVisible ? "Rp 5.250.000" : "● ● ● ● ● ●",
-                        style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white)),
+                    Text(
+                      _isSaldoVisible ? "Rp 5.250.000" : "● ● ● ● ● ●",
+                      style: const TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
                     const SizedBox(width: 10),
                     GestureDetector(
-                      onTap: () => setState(() => _isSaldoVisible = !_isSaldoVisible),
-                      child: Icon(_isSaldoVisible ? Icons.visibility : Icons.visibility_off_outlined, color: Colors.white, size: 20),
+                      onTap: () =>
+                          setState(() => _isSaldoVisible = !_isSaldoVisible),
+                      child: Icon(
+                        _isSaldoVisible
+                            ? Icons.visibility
+                            : Icons.visibility_off_outlined,
+                        color: Colors.white,
+                        size: 20,
+                      ),
                     ),
                   ],
                 ),
@@ -179,23 +198,42 @@ class _HomeScreenState extends State<HomeScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: const [
-                    Text("Semua Rekeningmu", style: TextStyle(color: Colors.white, fontSize: 13, fontWeight: FontWeight.w500)),
+                    Text(
+                      "Semua Rekeningmu",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 13,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
                     Icon(Icons.chevron_right, color: Colors.white),
                   ],
                 ),
               ],
             ),
           ),
-           // Fitur Utama (Transfer, BRIVA, dll)
+          // Fitur Utama (Transfer, BRIVA, dll)
           Padding(
             padding: const EdgeInsets.only(bottom: 20, top: 5),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                 _buildMainIcon(Icons.payments_outlined, "Transfer", Colors.blue[50]!),
-                _buildMainIcon(Icons.account_balance, "BRIVA", Colors.teal[50]!),
+                _buildMainIcon(
+                  Icons.payments_outlined,
+                  "Transfer",
+                  Colors.blue[50]!,
+                ),
+                _buildMainIcon(
+                  Icons.account_balance,
+                  "BRIVA",
+                  Colors.teal[50]!,
+                ),
                 _buildMainIcon(Icons.water_drop, "PDAM", Colors.blue[50]!),
-                _buildMainIcon(Icons.phone_android, "Pulsa/Data", Colors.green[50]!),
+                _buildMainIcon(
+                  Icons.phone_android,
+                  "Pulsa/Data",
+                  Colors.green[50]!,
+                ),
               ],
             ),
           ),
@@ -203,5 +241,47 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
-}
+
+  // 3. Cari & Atur (Berdampingan)
+  Widget _buildSearchAndAtur() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      child: Row(
+        children: [
+          Expanded(
+            flex: 3,
+            child: _whiteBox(
+              Row(
+                children: const [
+                  Icon(Icons.search, size: 18, color: Colors.grey),
+                  SizedBox(width: 8),
+                  Text("Cari Fitur", style: TextStyle(color: Colors.grey)),
+                ],
+              ),
+            ),
+          ),
+          const SizedBox(width: 10),
+          Expanded(
+            flex: 1,
+            child: _whiteBox(
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: const [
+                  Icon(Icons.tune, color: Color(0xFF00529C)),
+                  SizedBox(width: 5),
+                  Text(
+                    "Atur",
+                    style: TextStyle(
+                      color: Color(0xFF00529C),
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 }
