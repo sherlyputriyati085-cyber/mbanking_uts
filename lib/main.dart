@@ -175,5 +175,16 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ],
                 ),
+                const Divider(color: Colors.white24, thickness: 1, height: 25),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: const [
+                    Text("Semua Rekeningmu", style: TextStyle(color: Colors.white, fontSize: 13, fontWeight: FontWeight.w500)),
+                    Icon(Icons.chevron_right, color: Colors.white),
+                  ],
+                ),
+              ],
+            ),
+          ),
 }
 }
