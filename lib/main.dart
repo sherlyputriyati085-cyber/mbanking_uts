@@ -284,4 +284,39 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
+
+  // 4. Grid Fitur 4x2
+  Widget _buildFeatureGrid() {
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 20),
+      padding: const EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              _smallIcon(Icons.wallet, "Top Up"),
+              _smallIcon(Icons.receipt, "Tagihan"),
+              _smallIcon(Icons.atm, "Setor/Tarik"),
+              _smallIcon(Icons.style, "Lifestyle"),
+            ],
+          ),
+          const SizedBox(height: 25),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              _smallIcon(Icons.credit_card, "V. Debit"),
+              _smallIcon(Icons.edit_note, "Catatan"),
+              _smallIcon(Icons.trending_up, "Investasi"),
+              _smallIcon(Icons.favorite, "Donasi"),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
 }
