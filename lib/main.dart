@@ -192,5 +192,16 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
+                 _buildMainIcon(Icons.payments_outlined, "Transfer", Colors.blue[50]!),
+                _buildMainIcon(Icons.account_balance, "BRIVA", Colors.teal[50]!),
+                _buildMainIcon(Icons.water_drop, "PDAM", Colors.blue[50]!),
+                _buildMainIcon(Icons.phone_android, "Pulsa/Data", Colors.green[50]!),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 }
 }
