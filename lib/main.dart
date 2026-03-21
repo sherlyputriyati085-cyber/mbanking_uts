@@ -186,5 +186,11 @@ class _HomeScreenState extends State<HomeScreen> {
               ],
             ),
           ),
+           // Fitur Utama (Transfer, BRIVA, dll)
+          Padding(
+            padding: const EdgeInsets.only(bottom: 20, top: 5),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
 }
 }
