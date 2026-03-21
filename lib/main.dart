@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(const BRImoApp());
@@ -66,6 +65,115 @@ class _HomeScreenState extends State<HomeScreen> {
         elevation: 4,
         child: const Icon(Icons.qr_code_scanner, color: Colors.white, size: 30),
       ),
+      bottomNavigationBar: _buildBottomNav(),
     );
   }
+
+  // header atas sesuai foto
+  Widget _buildBlueHeader() {
+    return Container(
+      height: 220,
+      width: double.infinity,
+      color: const Color(0xFF00529C),
+      padding: const EdgeInsets.only(top: 60, left: 20, right: 20),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: const [
+              Text(
+                "selamat malam,",
+                style: TextStyle(color: Colors.white70, fontSize: 14),
+              ),
+              Text(
+                "Sherly",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
+          ),
+          Row(
+            children: [
+              const Icon(
+                Icons.notifications_none,
+                color: Colors.white,
+                size: 26,
+              ),
+              const SizedBox(width: 12),
+              Container(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 10,
+                  vertical: 6,
+                ),
+                decoration: BoxDecoration(
+                  color: Colors.white.withOpacity(0.2),
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Row(
+                  children: const [
+                    Icon(
+                      Icons.headset_mic_outlined,
+                      color: Colors.white,
+                      size: 18,
+                    ),
+                    SizedBox(width: 5),
+                    Text(
+                      "Pusat\nBantuan",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 10,
+                        height: 1.1,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+  // 2. Box Terintegrasi (Saldo Biru di dalam Bingkai Putih)
+  Widget _buildMainIntegratedCard() {
+    return Container(
+      margin: const EdgeInsets.only(top: 130, left: 20, right: 20),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(25),
+        boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.08), blurRadius: 15)],
+      ),
+
+    child: Column(
+        children: [
+          // Box Saldo Biru Tua
+          Container(
+            margin: const EdgeInsets.all(12),
+            padding: const EdgeInsets.all(18),
+            decoration: BoxDecoration(
+              color: const Color(0xFF0D47A1),
+              borderRadius: BorderRadius.circular(20),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text("Saldo Rekening Utama", style: TextStyle(color: Colors.white, fontSize: 13)),
+                const SizedBox(height: 8),
+                Row(
+                  children: [
+                    Text(_isSaldoVisible ? "Rp 5.250.000" : "● ● ● ● ● ●",
+                        style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white)),
+                    const SizedBox(width: 10),
+                    GestureDetector(
+                      onTap: () => setState(() => _isSaldoVisible = !_isSaldoVisible),
+                      child: Icon(_isSaldoVisible ? Icons.visibility : Icons.visibility_off_outlined, color: Colors.white, size: 20),
+                    ),
+                  ],
+                ),
+}
 }
