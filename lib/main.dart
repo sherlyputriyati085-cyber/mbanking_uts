@@ -23,7 +23,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  bool __isSaldoVisible = false;
+  bool _isSaldoVisible = false;
 
   @override
   Widget build(BuildContext context) {
@@ -313,6 +313,35 @@ class _HomeScreenState extends State<HomeScreen> {
               _smallIcon(Icons.edit_note, "Catatan"),
               _smallIcon(Icons.trending_up, "Investasi"),
               _smallIcon(Icons.favorite, "Donasi"),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  // 5. Header Penawaran (Lihat Semua di Pojok)
+  Widget _buildOfferHeader() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 25),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          const Text(
+            "Spesial Untukmu",
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+          ),
+          Row(
+            children: const [
+              Text(
+                "Lihat semua",
+                style: TextStyle(
+                  color: Color(0xFF00529C),
+                  fontSize: 12,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              Icon(Icons.chevron_right, color: Color(0xFF00529C), size: 16),
             ],
           ),
         ],
