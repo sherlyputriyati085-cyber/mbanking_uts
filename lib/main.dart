@@ -390,4 +390,23 @@ class _HomeScreenState extends State<HomeScreen> {
       ],
     );
   }
+
+  Widget _buildBottomNav() {
+    return BottomAppBar(
+      shape: const CircularNotchedRectangle(),
+      child: SizedBox(
+        height: 65,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            _navItem(Icons.home, "Home", true),
+            _navItem(Icons.history, "Mutasi", false),
+            const SizedBox(width: 40),
+            _navItem(Icons.assignment_outlined, "Aktivitas", false),
+            _navItem(Icons.person_outline, "Akun", false),
+          ],
+        ),
+      ),
+    );
+  }
 }
