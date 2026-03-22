@@ -380,4 +380,14 @@ class _HomeScreenState extends State<HomeScreen> {
       ],
     );
   }
+
+  Widget _smallIcon(IconData icon, String label) {
+    return Column(
+      children: [
+        Icon(icon, color: const Color(0xFF00529C), size: 26),
+        const SizedBox(height: 6),
+        Text(label, style: const TextStyle(fontSize: 10)),
+      ],
+    );
+  }
 }
