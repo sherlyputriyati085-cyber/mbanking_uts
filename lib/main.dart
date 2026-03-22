@@ -348,4 +348,16 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
+
+  // --- HELPER WIDGETS ---
+  Widget _whiteBox(Widget child) {
+    return Container(
+      padding: const EdgeInsets.all(12),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(15),
+      ),
+      child: child,
+    );
+  }
 }
