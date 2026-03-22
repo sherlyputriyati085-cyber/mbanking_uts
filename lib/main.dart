@@ -409,4 +409,20 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
+
+  Widget _navItem(IconData icon, String label, bool active) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Icon(icon, color: active ? const Color(0xFF00529C) : Colors.grey),
+        Text(
+          label,
+          style: TextStyle(
+            fontSize: 10,
+            color: active ? const Color(0xFF00529C) : Colors.grey,
+          ),
+        ),
+      ],
+    );
+  }
 }
