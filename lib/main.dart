@@ -360,4 +360,24 @@ class _HomeScreenState extends State<HomeScreen> {
       child: child,
     );
   }
+
+  Widget _buildMainIcon(IconData icon, String label, Color bgColor) {
+    return Column(
+      children: [
+        Container(
+          padding: const EdgeInsets.all(12),
+          decoration: BoxDecoration(
+            color: bgColor,
+            borderRadius: BorderRadius.circular(15),
+          ),
+          child: Icon(icon, color: const Color(0xFF00529C)),
+        ),
+        const SizedBox(height: 8),
+        Text(
+          label,
+          style: const TextStyle(fontSize: 11, fontWeight: FontWeight.w600),
+        ),
+      ],
+    );
+  }
 }
